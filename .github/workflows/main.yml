@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+      - master 
 jobs:
   aqua:
     name: Aqua scanner
@@ -10,6 +11,13 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
+      - name: Debug AQUA_KEY
+        run: echo "AQUA_KEY:${{ secrets.AQUA_KEY }}"
+      - name: Debug AQUA_SECRET
+        run: echo "AQUA_SECRET:${{ secrets.AQUA_SECRET }}"
+      - name: Debug GITHUB_TOKEN
+        run: echo "GITHUB_TOKEN:${{ github.token }}"   
 
       - name: Run Aqua scanner
         uses: docker://aquasec/aqua-scanner
@@ -25,3 +33,7 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
           TRIVY_RUN_AS_PLUGIN: 'aqua'
           # For http/https proxy configuration add env vars: HTTP_PROXY/HTTPS_PROXY, CA-CRET (path to CA certificate)
+
+        
+           
+
