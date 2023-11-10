@@ -12,12 +12,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Debug AQUA_KEY
-        run: echo "AQUA_KEY:${{ secrets.AQUA_KEY }}"
-      - name: Debug AQUA_SECRET
-        run: echo "AQUA_SECRET:${{ secrets.AQUA_SECRET }}"
-      - name: Debug GITHUB_TOKEN
-        run: echo "GITHUB_TOKEN:${{ github.token }}"   
+     # - name: Debug AQUA_KEY
+       # run: echo "AQUA_KEY:${{ secrets.AQUA_KEY }}"
+     # - name: Debug AQUA_SECRET
+      #  run: echo "AQUA_SECRET:${{ secrets.AQUA_SECRET }}"
+      #- name: Debug GITHUB_TOKEN
+      #  run: echo "GITHUB_TOKEN:${{ github.token }}"   
 
       - name: Run Aqua scanner
         uses: docker://aquasec/aqua-scanner
